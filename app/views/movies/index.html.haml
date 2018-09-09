@@ -24,5 +24,8 @@
   Include:
   - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]"
+    - if(@ratings_filter.include?(rating))
+      = check_box_tag "ratings[#{rating}]", "yes", true
+    - else
+      = check_box_tag "ratings[#{rating}]"
   = submit_tag 'Refresh'

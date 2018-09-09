@@ -5,7 +5,6 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @ratings_filter = (params[:ratings].nil?) ? @all_ratings
                                               : params[:ratings].keys
-
     @movies = Movie.all.where(rating: @ratings_filter).group(params[:sort_by])
   end
 
