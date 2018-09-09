@@ -3,7 +3,10 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    @movies = Movie.all.group(params[:sort_by])
+    @ratings_filter = (params[:ratings].nil?) ? @all_ratings
+                                              : params[:ratings].keys
+
+    @movies = Movie.all.where(rating: @ratings_filter).group(params[:sort_by])
   end
 
   def show
