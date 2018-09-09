@@ -1,6 +1,8 @@
 # This file is app/controllers/movies_controller.rb
 class MoviesController < ApplicationController
+
   def index
+    @all_ratings = Movie.all_ratings
     @movies = Movie.all.group(params[:sort_by])
   end
 
