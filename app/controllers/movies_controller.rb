@@ -23,6 +23,8 @@ class MoviesController < ApplicationController
     # Redirect in case @sort_by or @ratings_filter is nil:
     if(@sort_by.nil? || @ratings_filter.nil?)
 
+      flash.keep
+
       if(@sort_by.nil? && @ratings_filter.nil?)
         redirect_to movie_path(sort_by: "id",
                                ratings: Hash[@all_ratings.map {|r| [r, 1]}])
