@@ -1,5 +1,6 @@
 -#  This file is app/views/movies/index.html.haml
-%h1= link_to "All Movies", movies_path
+%h1= link_to "All Movies",
+  movies_path(sort_by: "id", ratings: Hash[@all_ratings.map {|r| [r, 1]}])
 
 %table#movies
   %thead
