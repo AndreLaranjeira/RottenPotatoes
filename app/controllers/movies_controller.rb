@@ -3,9 +3,28 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    @ratings_filter = (params[:ratings].nil?) ? @all_ratings
-                                              : params[:ratings].keys
-    @movies = Movie.all.where(rating: @ratings_filter).group(params[:sort_by])
+
+    # Setting the sorting option:
+    if(params[:sort_by])
+      @sort_by = params[:sort_by]
+      session[:sort_by] = params[:sort_by]
+    elsif(session[:sort_by])
+      @sort_by = session[:sort_by]
+    else
+      @sort_by = nil
+    end
+
+    # Setting the filtering option:
+    if(params[:ratings])
+      @ratings_filter = params[:ratings].keys
+      session[:ratings] = params[:ratings]
+    elsif(session[:ratings])
+      @ratings_filter = session[:ratings].keys
+    else
+      @ratings_filter = @all_ratings
+    end
+
+    @movies = Movie.all.where(rating: @ratings_filter).group(@sort_by)
   end
 
   def show
