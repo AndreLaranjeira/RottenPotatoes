@@ -10,8 +10,6 @@ class MoviesController < ApplicationController
       session[:sort_by] = params[:sort_by]
     elsif(session[:sort_by])
       @sort_by = session[:sort_by]
-    else
-      @sort_by = nil
     end
 
     # Setting the filtering option:
@@ -20,8 +18,25 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
     elsif(session[:ratings])
       @ratings_filter = session[:ratings].keys
-    else
-      @ratings_filter = @all_ratings
+    end
+
+    # Redirect in case @sort_by or @ratings_filter is nil:
+    if(@sort_by.nil? || @ratings_filter.nil?)
+
+      if(@sort_by.nil? && @ratings_filter.nil?)
+        redirect_to movie_path(sort_by: "id",
+                               ratings: Hash[@all_ratings.map {|r| [r, 1]}])
+
+      elsif(@sort_by.nil?)
+        redirect_to movie_path(sort_by: "id", ratings: session[:ratings])
+
+      else
+        redirect_to movie_path(sort_by: session[:sort_by],
+                               ratings: Hash[@all_ratings.map {|r| [r, 1]}])
+
+      end
+
+      return
     end
 
     @movies = Movie.all.where(rating: @ratings_filter).group(@sort_by)
