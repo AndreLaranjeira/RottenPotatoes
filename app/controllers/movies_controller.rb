@@ -26,14 +26,14 @@ class MoviesController < ApplicationController
       flash.keep
 
       if(@sort_by.nil? && @ratings_filter.nil?)
-        redirect_to movie_path(sort_by: "id",
+        redirect_to movies_path(sort_by: "id",
                                ratings: Hash[@all_ratings.map {|r| [r, 1]}])
 
       elsif(@sort_by.nil?)
-        redirect_to movie_path(sort_by: "id", ratings: session[:ratings])
+        redirect_to movies_path(sort_by: "id", ratings: session[:ratings])
 
       else
-        redirect_to movie_path(sort_by: session[:sort_by],
+        redirect_to movies_path(sort_by: session[:sort_by],
                                ratings: Hash[@all_ratings.map {|r| [r, 1]}])
 
       end
