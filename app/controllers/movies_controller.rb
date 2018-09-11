@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
       return
     end
 
-    @movies = Movie.all.where(rating: @ratings_filter).group(@sort_by)
+    @movies = Movie.all.where(rating: @ratings_filter).order(@sort_by)
   end
 
   def show
