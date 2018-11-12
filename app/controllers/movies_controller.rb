@@ -60,10 +60,6 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def movie_params
-    params.require(:movie).permit(:title,:rating,:description,:release_date)
-  end
-
   def edit
     id = params[:id]
     @movie = Movie.find(id)
@@ -84,4 +80,9 @@ class MoviesController < ApplicationController
     flash[:notice] = "#{@movie.title} was deleted!"
     redirect_to movies_path
   end
+
+  def movie_params
+    params.require(:movie).permit(:title,:director, :rating,:description,:release_date)
+  end
+
 end
