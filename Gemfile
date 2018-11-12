@@ -54,16 +54,17 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Cucumber
 group :test do
-	gem 'cucumber-rails'
+	gem 'cucumber-rails', :require => false
 	gem 'cucumber-rails-training-wheels'
 	gem 'database_cleaner'
 	gem 'capybara'
 	gem 'launchy'
+  gem 'rspec-rails'
 end
