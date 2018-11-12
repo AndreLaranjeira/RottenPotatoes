@@ -6,6 +6,9 @@ log/
 db/*.sqlite3
 tmp/
 
-# bundler state
+# Bundler state
 /.bundle
 /vendor/bundle/
+
+# Coverage report
+/coverage

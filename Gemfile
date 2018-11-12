@@ -60,6 +60,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Gems added by the developers:
+gem 'simplecov'
+
+# Gems for BDD and TDD:
 group :test do
 	gem 'cucumber-rails', :require => false
 	gem 'cucumber-rails-training-wheels'

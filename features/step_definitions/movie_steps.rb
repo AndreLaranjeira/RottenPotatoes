@@ -42,7 +42,7 @@ end
 Then(/^I should see "(.*)" before "(.*)"$/) do |movie1, movie2|
 
   if page.respond_to? :should
-    page.should have_content(/#{movie1}.*#{movie2}/m)
+    expect(page).to have_content(/#{movie1}.*#{movie2}/m)
   else
     assert page.has_content?(/#{movie1}.*#{movie2}/m)
   end
@@ -59,7 +59,7 @@ Then("I should see all of the movies") do
   if page.respond_to? :should
     titles.each {
       |title|
-      page.should have_content(title)
+      expect(page).to have_content(title)
     }
   else
     titles.each {
