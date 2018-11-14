@@ -81,8 +81,13 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def similar_movies
+    @original_movie = Movie.find params[:id]
+    @movies = Movie.find_by_director(@original_movie.director)
+  end
+
   def movie_params
-    params.require(:movie).permit(:title,:director, :rating,:description,:release_date)
+    params.require(:movie).permit(:title, :director, :rating, :description, :release_date)
   end
 
 end
