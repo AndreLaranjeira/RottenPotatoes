@@ -12,12 +12,12 @@ RSpec.describe Movie, type: :model do
     }
 
     it 'returns a list of movies with the movie director if it exists' do
-      expect(@movie1.find_by_director).to eq([@movie1, @movie3])
-      expect(@movie2.find_by_director).to eq([@movie2])
+      expect(Movie.find_by_director(@movie1)).to eq([@movie1, @movie3])
+      expect(Movie.find_by_director(@movie2)).to eq([@movie2])
     end
 
     it 'returns a empty list if the movie has no director' do
-      expect(@movie4.find_by_director).to eq([])
+      expect(Movie.find_by_director(@movie4)).to eq([])
     end
 
   end

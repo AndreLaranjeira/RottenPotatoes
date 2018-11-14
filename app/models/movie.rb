@@ -10,8 +10,8 @@ class Movie < ActiveRecord::Base
     @@all_ratings
   end
 
-  def find_by_director
-    return (director.nil? ? [] : Movie.all.where(director: director))
+  def self.find_by_director(m)
+    return (m.director.nil? ? [] : Movie.all.where(director: m.director))
   end
 
 end

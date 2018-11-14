@@ -11,7 +11,7 @@ RSpec.describe MoviesController, type: :controller do
     }
 
     it 'calls a model method to obtain movie results' do
-      expect(Movie).to receive(:find_by_director).with("George Lucas")
+      expect(Movie).to receive(:find_by_director).with(@movie)
       get :similar_movies, params: {id: @movie.id}
     end
 
