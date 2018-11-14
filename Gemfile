@@ -61,6 +61,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Gems added by the developers:
+gem 'factory_bot_rails'
 gem 'simplecov'
 
 # Gems for BDD and TDD:
@@ -71,4 +72,5 @@ group :test do
 	gem 'capybara'
 	gem 'launchy'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end

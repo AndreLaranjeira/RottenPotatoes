@@ -4,5 +4,7 @@
 #end
 Myrottenpotatoes::Application.routes.draw do
   resources :movies
+  get '/movies/:id/similar_movies', to: 'movies#similar_movies',
+                                    as: 'similar_movies'
   root :to => redirect('/movies')
 end
