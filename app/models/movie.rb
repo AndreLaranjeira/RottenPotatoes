@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.find_by_director(m)
-    return (m.director.nil? ? [] : Movie.all.where(director: m.director))
+    return (m.director.blank? ? [] : Movie.all.where(director: m.director))
   end
 
 end

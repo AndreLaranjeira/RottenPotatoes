@@ -71,9 +71,10 @@ padding: 4px;
 text-align: left;
 }
 #notice, #warning {
-background: rosybrown;
+background: wheat;
 margin: 1em 0;
 padding: 4px;
+text-align: center;
 }
 form label {
 display: block;
