@@ -39,6 +39,18 @@ Given(/^I uncheck the following ratings: (.*)$/) do |ratings|
 
 end
 
+Given(/^the movie with title "(.*)" and rating "(.*)" exists$/) do |title, rating|
+  steps %(
+  When I follow "Add new movie"
+  Then I should be on the Create New Movie page
+  When I fill in "Title" with "#{title}"
+  And I select "#{rating}" from "Rating"
+  And I press "Save Changes"
+  Then I should be on the RottenPotatoes home page
+  And I should see "#{title}"
+  )
+end
+
 Then(/^I should see "(.*)" before "(.*)"$/) do |movie1, movie2|
 
   if page.respond_to? :should
