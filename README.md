@@ -1,4 +1,4 @@
-# Software Engineering: RottenPotatoes
+# RottenPotatoes
 
 ### Descrição:
 
