@@ -1,14 +1,20 @@
-\#*\#
-*~
-TAGS
+# Environment normalization:
+*.DS_Store
+.idea
+.rvmrc
+.vscode
+
+# Development database:
 db/schema.rb
-log/
 db/*.sqlite3
+
+# Ignore all logfiles and tempfiles:
+log/
 tmp/
 
-# Bundler state
+# Bundler state:
 /.bundle
 /vendor/bundle/
 
-# Coverage report
+# Coverage report:
 /coverage

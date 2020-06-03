@@ -30,7 +30,7 @@ André Filipe Caldas Laranjeira | 16/0023777
 * Ordenamento dos filmes baseado em nome ou data de lançamento.
 * Filtragem dos filmes baseado em classificação etária.
 * Armazenamento das preferências de ordenamento e filtragem do usuário em
-váriaveis de sessão.
+variáveis de sessão.
 * Reestruturação do programa para possibilitar a utilização da plataforma
 Heroku.
 
